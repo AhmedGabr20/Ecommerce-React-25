@@ -1,27 +1,46 @@
-import React from "react";
-import api from "../api/axiosConfig";
+import React, { useState } from "react";
+import { useCart } from "../contexts/CartContext";
+import { toast } from "react-toastify";
 
 export default function ProductCard({ product }) {
-    const userId = localStorage.getItem("userId") || 1; // fallback
+    const { addItem } = useCart();
+    const [loading, setLoading] = useState(false);
 
-    const addToCart = async () => {
+    const handleAdd = async () => {
+        const userId = localStorage.getItem("userId");
+        if (!userId) {
+            toast.error("Please login first");
+            return;
+        }
         try {
-            // Endpoint: POST /cart/{userId}/add/{productId}?quantity=1
-            const res = await api.post(`/cart/${userId}/add/${product.id}?quantity=1`);
-            alert(res.message || "Added to cart");
+            setLoading(true);
+            await addItem(product.id, 1);
+            toast.success(`${product.name} added to cart`);
+            // small animate (add class)
+            // optional: trigger CSS animation here
         } catch (err) {
-            alert("Failed to add to cart");
+            toast.error(
+                err?.response?.data?.message ||
+                err?.data?.message ||
+                err?.message ||
+                "Failed to add to cart"
+            );
+
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <div className="card h-100">
+        <div className="card h-100 shadow-sm">
             <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{product.name}</h5>
                 <p className="card-text text-muted small">{product.description}</p>
-                <div className="mt-auto">
-                    <div className="fw-bold mb-2">${product.price}</div>
-                    <button onClick={addToCart} className="btn btn-primary btn-sm">Add to Cart</button>
+                <div className="mt-auto d-flex justify-content-between align-items-center">
+                    <div className="fw-bold">${product.price}</div>
+                    <button className="btn btn-primary btn-sm" onClick={handleAdd} disabled={loading}>
+                        {loading ? "Adding..." : "Add to Cart"}
+                    </button>
                 </div>
             </div>
         </div>

@@ -1,31 +1,37 @@
 import axios from "axios";
 
-// baseURL
 const api = axios.create({
     baseURL: "http://localhost:8080/api",
-    timeout: 10000,
 });
 
-// add Authorization header automatically
 api.interceptors.request.use((config) => {
-    const token = localStorage.getItem("accessToken");
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-    }
+    const access = localStorage.getItem("accessToken");
+    if (access) config.headers.Authorization = `Bearer ${access}`;
     return config;
-}, (error) => Promise.reject(error));
+});
 
-// response interceptor: unwrap ApiResponse { status, message, data }
 api.interceptors.response.use(
-    (response) => {
-        // backend
-        // لو لازم ترجع data مباشرة:
-        if (response.data && response.data.data !== undefined) {
-            return response.data; // caller will use .data (wrapper) or .data.data for payload
+    res => res.data,
+    async (error) => {
+        const original = error.config;
+
+        if (error.response?.status === 401 && !original._retry) {
+            original._retry = true;
+
+            try {
+                const refresh = localStorage.getItem("refreshToken");
+                const res = await axios.post("http://localhost:8080/api/auth/refresh?refreshToken=" + refresh);
+
+                const newAccess = res?.data?.data?.accessToken ?? res?.data?.accessToken;
+                localStorage.setItem("accessToken", newAccess);
+
+                original.headers.Authorization = `Bearer ${newAccess}`;
+                return api(original);
+            } catch (err) {
+                return Promise.reject(err);
+            }
         }
-        return response;
-    },
-    (error) => {
+
         return Promise.reject(error);
     }
 );

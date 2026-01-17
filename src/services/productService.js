@@ -5,7 +5,7 @@ const PRODUCT_URL = "/products";
 const getAll = async (page = 0, size = 20, sortBy = "id") => {
     // backend returns ApiResponse with data = list
     const res = await api.get(`${PRODUCT_URL}?page=${page}&size=${size}&sortBy=${sortBy}`);
-    return res; // caller inspects res.data.data
+    return res;
 };
 
 const create = async (productPayload) => {

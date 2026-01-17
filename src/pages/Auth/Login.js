@@ -1,39 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
+
+const schema = yup.object().shape({
+    username: yup.string().email("Invalid email").required(),
+    password: yup.string().min(3).required(),
+});
 
 export default function Login() {
-    const [form, setForm] = useState({ username: "", password: "" });
-    const [err, setErr] = useState(null);
+    const { login } = useContext(AuthContext);
     const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+        resolver: yupResolver(schema)
+    });
 
-    const submit = async (e) => {
-        e.preventDefault();
+    const onSubmit = async (data) => {
         try {
-            const res = await authService.login(form);
-            if (res && res.data && res.data.accessToken) {
-                // login() stored token already
-                // if backend returns user id, store it:
-                if (res.data.id) localStorage.setItem("userId", res.data.id);
-                navigate("/products");
-            } else {
-                setErr(res.data?.message || "Login failed");
-            }
-        } catch (error) {
-            setErr(error.response?.data?.message || "Login failed");
+            const res = await authService.login(data);
+            login(res);
+            toast.success("Welcome!");
+            navigate("/products");
+        } catch (err) {
+            toast.error(err.response?.data?.message || "Login failed");
         }
     };
 
     return (
-        <div className="container mt-5" style={{maxWidth: 420}}>
+        <div className="container mt-5" style={{maxWidth:420}}>
             <h3>Login</h3>
-            {err && <div className="alert alert-danger">{err}</div>}
-            <form onSubmit={submit}>
-                <input className="form-control mb-2" placeholder="Username" value={form.username}
-                       onChange={(e)=>setForm({...form, username: e.target.value})} />
-                <input className="form-control mb-2" placeholder="Password" type="password" value={form.password}
-                       onChange={(e)=>setForm({...form, password: e.target.value})} />
-                <button className="btn btn-primary">Login</button>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input className="form-control mb-2" placeholder="Email" {...register("username")} />
+                {errors.username && <div className="text-danger small">{errors.username.message}</div>}
+                <input className="form-control mb-2" placeholder="Password" type="password" {...register("password")} />
+                {errors.password && <div className="text-danger small">{errors.password.message}</div>}
+                <button className="btn btn-primary" disabled={isSubmitting}>{isSubmitting ? "Logging..." : "Login"}</button>
             </form>
         </div>
     );

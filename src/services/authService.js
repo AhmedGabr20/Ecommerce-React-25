@@ -14,6 +14,7 @@ const login = async ({ username, password }) => {
     if (res.data && res.data.accessToken) {
         localStorage.setItem("accessToken", res.data.accessToken);
         if (res.data.refreshToken) localStorage.setItem("refreshToken", res.data.refreshToken);
+        if (res.data.id) localStorage.setItem("userId", res.data.id);
         localStorage.setItem("username", res.data.username);
         localStorage.setItem("role", res.data.role);
     }
