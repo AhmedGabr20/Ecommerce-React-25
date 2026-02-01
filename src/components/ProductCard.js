@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import { useCart } from "../contexts/CartContext";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 export default function ProductCard({ product }) {
     const { addItem } = useCart();
     const [loading, setLoading] = useState(false);
+    const { t } = useTranslation();
 
     const handleAdd = async () => {
         const userId = localStorage.getItem("userId");
         if (!userId) {
-            toast.error("Please login first");
+            toast.error(t("cart.loginFirst"));
             return;
         }
         try {
             setLoading(true);
             await addItem(product.id, 1);
-            toast.success(`${product.name} added to cart`);
+            toast.success(
+                t("cart.added", { name: product.name })
+            );
             // small animate (add class)
             // optional: trigger CSS animation here
         } catch (err) {
             toast.error(
-                err?.response?.data?.message ||
-                err?.data?.message ||
-                err?.message ||
-                "Failed to add to cart"
+                t("cart.addFailed")
             );
-
         } finally {
             setLoading(false);
         }
@@ -39,7 +39,7 @@ export default function ProductCard({ product }) {
                 <div className="mt-auto d-flex justify-content-between align-items-center">
                     <div className="fw-bold">${product.price}</div>
                     <button className="btn btn-primary btn-sm" onClick={handleAdd} disabled={loading}>
-                        {loading ? "Adding..." : "Add to Cart"}
+                        {loading ? t("product.adding") : t("product.addToCart")}
                     </button>
                 </div>
             </div>

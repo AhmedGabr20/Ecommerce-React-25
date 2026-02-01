@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useEffect} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Auth/Login";
@@ -10,53 +10,70 @@ import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import PaymentPage from "./pages/Payment/PaymentPage";
 import OrderPage from "./pages/Orders/OrdersPage";
 import {ToastContainer} from "react-toastify";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminRoute from "./components/AdminRoute";
+import { useTranslation } from "react-i18next";
 
 function App() {
+
+    const { i18n } = useTranslation();
+
+    useEffect(() => {
+        document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
+    }, [i18n.language]);
+
     return (
-        <BrowserRouter>
-            <Navbar />
-            <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                pauseOnHover
-                draggable
-            />
-            <Routes>
-                <Route path="/login" element={<Login/>} />
-                <Route path="/register" element={<Register/>} />
-                <Route path="/products" element={<ProductList />} />
-                {/*<Route path="/products" element={*/}
-                {/*    <ProtectedRoute>*/}
-                {/*        <ProductList />*/}
-                {/*    </ProtectedRoute>*/}
-                {/*} />*/}
-                <Route path="/cart" element={
+        <>
+            <BrowserRouter>
+                <Navbar />
+                <ToastContainer
+                    position="top-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    pauseOnHover
+                    draggable
+                />
+                <Routes>
+                    <Route path="/login" element={<Login/>} />
+                    <Route path="/register" element={<Register/>} />
+                    <Route path="/products" element={<ProductList />} />
+                    {/*<Route path="/products" element={*/}
+                    {/*    <ProtectedRoute>*/}
+                    {/*        <ProductList />*/}
+                    {/*    </ProtectedRoute>*/}
+                    {/*} />*/}
+                    <Route path="/cart" element={
                         <ProtectedRoute>
                             <CartPage />
                         </ProtectedRoute>
-                }/>
-                <Route path="/checkout" element={
-                    <ProtectedRoute>
-                        <CheckoutPage />
-                    </ProtectedRoute>
-                }/>
-                <Route path="/payment/:orderId" element={
-                    <ProtectedRoute>
-                        <PaymentPage />
-                    </ProtectedRoute>
-                }/>
-                <Route path="/orders" element={
-                    <ProtectedRoute>
-                        <OrderPage />
-                    </ProtectedRoute>
-                }/>
+                    }/>
+                    <Route path="/checkout" element={
+                        <ProtectedRoute>
+                            <CheckoutPage />
+                        </ProtectedRoute>
+                    }/>
+                    <Route path="/payment/:orderId" element={
+                        <ProtectedRoute>
+                            <PaymentPage />
+                        </ProtectedRoute>
+                    }/>
+                    <Route path="/orders" element={
+                        <ProtectedRoute>
+                            <OrderPage />
+                        </ProtectedRoute>
+                    }/>
 
-                <Route path="*" element={<ProductList/>}/>
-            </Routes>
-        </BrowserRouter>
+                    <Route path="*" element={<ProductList/>}/>
+                    <Route path="/admin/dashboard" element={
+                        <AdminRoute>
+                            <AdminDashboard/>
+                        </AdminRoute>
+                    }/>
+                </Routes>
+            </BrowserRouter>
+        </>
     );
 }
 
