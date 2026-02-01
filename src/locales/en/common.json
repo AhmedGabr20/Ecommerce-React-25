@@ -1,0 +1,121 @@
+{
+  "errors": {
+    "PAYMENT_ALREADY_EXISTS": "This order is already paid.",
+    "ORDER_NOT_FOUND": "Order not found.",
+    "ORDER_ALREADY_PAID": "Order is already paid.",
+    "INTERNAL_ERROR": "Something went wrong. Please try again.",
+    "DEFAULT": "Something went wrong. Please try again."
+  },
+
+  "payment": {
+    "title": "Payment for Order #{{orderId}}",
+    "payNow": "Pay Now",
+    "processing": "Processing Payment...",
+    "success": "Payment completed successfully ✅",
+    "method": "Payment Method",
+    "cash": "Cash",
+    "card": "Card",
+    "confirmTitle": "Confirm payment",
+    "confirmText": "Are you sure you want to pay for this order?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+
+  "nav": {
+    "brand": "E-Commerce",
+    "products": "Products",
+    "cart": "Cart",
+    "myOrders": "My Orders",
+    "admin": "Admin",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "hi": "Hi"
+  },
+
+  "products": {
+    "title": "Products",
+    "empty": "No products available"
+  },
+
+  "product": {
+    "addToCart": "Add to Cart",
+    "adding": "Adding...",
+    "price": "Price"
+  },
+  "cart": {
+    "loginFirst": "Please login first",
+    "added": "{{name}} added to cart",
+    "addFailed": "Failed to add to cart"
+  },
+  "cartPage": {
+    "empty": "Your cart is empty",
+    "title": "Your Cart",
+    "qty": "Qty",
+    "remove": "Remove",
+    "total": "Total",
+    "clear": "Clear",
+    "checkout": "Checkout"
+  },
+  "cartToast": {
+    "itemRemoved": "Item removed",
+    "removeFailed": "Failed to remove item",
+    "cleared": "Cart cleared"
+  },
+
+  "checkout": {
+    "title": "Checkout",
+    "summary": "Order Summary",
+    "items": "Items",
+    "total": "Total",
+    "placeOrder": "Place Order",
+    "placingOrder": "Placing order...",
+    "confirmTitle": "Confirm order",
+    "confirmText": "Are you sure you want to place this order?",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "success": "Order created successfully ✅"
+  },
+  "orders": {
+    "title": "Your Orders",
+    "empty": "You have no orders yet",
+    "order": "Order",
+    "total": "Total"
+  },
+  "orderStatus": {
+    "NEW": "New",
+    "PAID": "Paid",
+    "SHIPPED": "Shipped",
+    "COMPLETED": "Completed",
+    "CANCELED": "Canceled"
+  },
+
+
+
+
+
+
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "loading": "Loading dashboard...",
+    "kpi": {
+      "totalRevenue": "Total Revenue",
+      "paidOrders": "Paid Orders",
+      "totalOrders": "Total Orders",
+      "totalUsers": "Total Users"
+    },
+    "revenueTitle": "Revenue",
+    "revenueRangeHint": "Last {{days}} days",
+    "topProducts": "Top Products",
+    "table": {
+      "product": "Product",
+      "qty": "Qty",
+      "amount": "Amount"
+    },
+    "range": "Range: {{from}} → {{to}}",
+    "noRevenue": "No revenue data in this range",
+    "noTop": "No top products in this range"
+  }
+
+
+}

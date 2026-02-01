@@ -1,0 +1,132 @@
+{
+  "errors": {
+    "PAYMENT_ALREADY_EXISTS": "تم دفع الطلب بالفعل.",
+    "ORDER_NOT_FOUND": "الطلب غير موجود.",
+    "ORDER_ALREADY_PAID": "الطلب مدفوع بالفعل.",
+    "INTERNAL_ERROR": "حدث خطأ. حاول مرة أخرى.",
+    "DEFAULT": "حدث خطأ. حاول مرة أخرى."
+  },
+
+  "payment": {
+    "title": "الدفع للطلب رقم #{{orderId}}",
+    "payNow": "ادفع الآن",
+    "processing": "جاري تنفيذ الدفع...",
+    "success": "تم الدفع بنجاح ✅",
+    "method": "طريقة الدفع",
+    "cash": "كاش",
+    "card": "بطاقة",
+    "confirmTitle": "تأكيد الدفع",
+    "confirmText": "هل أنت متأكد أنك تريد دفع هذا الطلب؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد"
+  },
+
+  "nav": {
+    "brand": "التجارة الإلكترونية",
+    "products": "المنتجات",
+    "cart": "السلة",
+    "myOrders": "طلباتي",
+    "admin": "الإدارة",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "hi": "مرحبًا"
+  },
+
+  "products": {
+    "title": "المنتجات",
+    "empty": "لا توجد منتجات متاحة"
+  },
+
+  "product": {
+    "addToCart": "أضف إلى السلة",
+    "adding": "جاري الإضافة...",
+    "price": "السعر"
+  },
+  "cart": {
+    "loginFirst": "من فضلك سجل الدخول أولاً",
+    "added": "تمت إضافة {{name}} إلى السلة",
+    "addFailed": "فشل إضافة المنتج إلى السلة"
+  },
+  "cartPage": {
+    "empty": "سلة التسوق فارغة",
+    "title": "سلة التسوق",
+    "qty": "الكمية",
+    "remove": "حذف",
+    "total": "الإجمالي",
+    "clear": "تفريغ السلة",
+    "checkout": "إتمام الشراء"
+  },
+  "cartToast": {
+    "itemRemoved": "تم حذف المنتج",
+    "removeFailed": "فشل حذف المنتج",
+    "cleared": "تم تفريغ السلة"
+  },
+
+  "checkout": {
+    "title": "إتمام الشراء",
+    "summary": "ملخص الطلب",
+    "items": "عدد المنتجات",
+    "total": "الإجمالي",
+    "placeOrder": "تأكيد الطلب",
+    "placingOrder": "جاري إنشاء الطلب...",
+    "confirmTitle": "تأكيد الطلب",
+    "confirmText": "هل أنت متأكد أنك تريد إنشاء الطلب؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "success": "تم إنشاء الطلب بنجاح ✅"
+  },
+  "orders": {
+    "title": "طلباتي",
+    "empty": "لا توجد طلبات حتى الآن",
+    "order": "طلب",
+    "total": "الإجمالي"
+  },
+  "orderStatus": {
+    "NEW": "جديد",
+    "PAID": "مدفوع",
+    "SHIPPED": "تم الشحن",
+    "COMPLETED": "مكتمل",
+    "CANCELED": "ملغي"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "admin": {
+    "dashboard": "لوحة تحكم الإدارة",
+    "loading": "جاري تحميل لوحة التحكم...",
+    "kpi": {
+      "totalRevenue": "إجمالي الإيرادات",
+      "paidOrders": "الطلبات المدفوعة",
+      "totalOrders": "إجمالي الطلبات",
+      "totalUsers": "إجمالي المستخدمين"
+    },
+    "revenueTitle": "الإيرادات",
+    "revenueRangeHint": "آخر {{days}} يوم",
+    "topProducts": "أكثر المنتجات مبيعًا",
+    "table": {
+      "product": "المنتج",
+      "qty": "الكمية",
+      "amount": "المبلغ"
+    },
+    "range": "الفترة: {{from}} ← {{to}}",
+    "noRevenue": "لا توجد بيانات إيرادات في هذه الفترة",
+    "noTop": "لا توجد بيانات للمنتجات في هذه الفترة"
+  }
+
+
+}
