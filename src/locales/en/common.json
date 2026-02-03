@@ -84,8 +84,11 @@
   },
   "orderStatus": {
     "NEW": "New",
+    "PENDING": "Pending",
+    "PROCESSING": "Processing",
     "PAID": "Paid",
     "SHIPPED": "Shipped",
+    "DELIVERED": "Delivered",
     "COMPLETED": "Completed",
     "CANCELED": "Canceled"
   },
@@ -115,7 +118,44 @@
     "range": "Range: {{from}} → {{to}}",
     "noRevenue": "No revenue data in this range",
     "noTop": "No top products in this range"
+  },
+  "adminOrders": {
+    "loadFailed": "Failed to load orders",
+    "loadOrderDetailsFailed": "Failed to load order details",
+    "statusUpdated": "Status updated",
+    "statusUpdateFailed": "Failed to update status",
+    "title": "Admin Orders",
+    "refresh": "Refresh",
+    "filters": {
+      "allStatus": "All Status",
+      "usernamePlaceholder": "Search by username",
+      "search": "Search",
+      "reset": "Reset"
+    },
+    "table": {
+      "id": "#",
+      "user": "User",
+      "created": "Created",
+      "total": "Total",
+      "status": "Status",
+      "actions": "Actions",
+      "details": "Details",
+      "noOrders": "No orders",
+      "loading": "Loading..."
+    },
+    "pagination": {
+      "page": "Page {{page}} of {{totalPages}} — Total {{total}}",
+      "prev": "Prev",
+      "next": "Next"
+    },
+    "details": {
+      "title": "Order Details",
+      "select": "Select an order",
+      "order": "Order",
+      "user": "User",
+      "status": "Status",
+      "total": "Total",
+      "items": "Items"
+    }
   }
-
-
 }

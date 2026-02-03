@@ -13,6 +13,7 @@ import {ToastContainer} from "react-toastify";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminRoute from "./components/AdminRoute";
 import { useTranslation } from "react-i18next";
+import AdminOrdersPage from "./pages/Admin/AdminOrdersPage";
 
 function App() {
 
@@ -71,6 +72,11 @@ function App() {
                             <AdminDashboard/>
                         </AdminRoute>
                     }/>
+                    <Route path="/admin/orders" element={
+                        <AdminRoute>
+                            <AdminOrdersPage />
+                        </AdminRoute>
+                    } />
                 </Routes>
             </BrowserRouter>
         </>

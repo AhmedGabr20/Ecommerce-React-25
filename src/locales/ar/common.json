@@ -1,10 +1,10 @@
 {
   "errors": {
-    "PAYMENT_ALREADY_EXISTS": "تم دفع الطلب بالفعل.",
+    "PAYMENT_ALREADY_EXISTS": "تم دفع هذا الطلب بالفعل.",
     "ORDER_NOT_FOUND": "الطلب غير موجود.",
-    "ORDER_ALREADY_PAID": "الطلب مدفوع بالفعل.",
-    "INTERNAL_ERROR": "حدث خطأ. حاول مرة أخرى.",
-    "DEFAULT": "حدث خطأ. حاول مرة أخرى."
+    "ORDER_ALREADY_PAID": "تم دفع الطلب مسبقًا.",
+    "INTERNAL_ERROR": "حدث خطأ ما. حاول مرة أخرى.",
+    "DEFAULT": "حدث خطأ ما. حاول مرة أخرى."
   },
 
   "payment": {
@@ -13,10 +13,10 @@
     "processing": "جاري تنفيذ الدفع...",
     "success": "تم الدفع بنجاح ✅",
     "method": "طريقة الدفع",
-    "cash": "كاش",
+    "cash": "نقدي",
     "card": "بطاقة",
     "confirmTitle": "تأكيد الدفع",
-    "confirmText": "هل أنت متأكد أنك تريد دفع هذا الطلب؟",
+    "confirmText": "هل أنت متأكد من إتمام الدفع لهذا الطلب؟",
     "cancel": "إلغاء",
     "confirm": "تأكيد"
   },
@@ -40,71 +40,63 @@
 
   "product": {
     "addToCart": "أضف إلى السلة",
-    "adding": "جاري الإضافة...",
+    "adding": "جارٍ الإضافة...",
     "price": "السعر"
   },
+
   "cart": {
-    "loginFirst": "من فضلك سجل الدخول أولاً",
+    "loginFirst": "يرجى تسجيل الدخول أولاً",
     "added": "تمت إضافة {{name}} إلى السلة",
-    "addFailed": "فشل إضافة المنتج إلى السلة"
+    "addFailed": "فشل في إضافة المنتج إلى السلة"
   },
+
   "cartPage": {
-    "empty": "سلة التسوق فارغة",
-    "title": "سلة التسوق",
+    "empty": "سلة المشتريات فارغة",
+    "title": "سلة المشتريات",
     "qty": "الكمية",
     "remove": "حذف",
     "total": "الإجمالي",
     "clear": "تفريغ السلة",
     "checkout": "إتمام الشراء"
   },
+
   "cartToast": {
     "itemRemoved": "تم حذف المنتج",
-    "removeFailed": "فشل حذف المنتج",
+    "removeFailed": "فشل في حذف المنتج",
     "cleared": "تم تفريغ السلة"
   },
 
   "checkout": {
     "title": "إتمام الشراء",
     "summary": "ملخص الطلب",
-    "items": "عدد المنتجات",
+    "items": "المنتجات",
     "total": "الإجمالي",
     "placeOrder": "تأكيد الطلب",
-    "placingOrder": "جاري إنشاء الطلب...",
+    "placingOrder": "جارٍ إنشاء الطلب...",
     "confirmTitle": "تأكيد الطلب",
-    "confirmText": "هل أنت متأكد أنك تريد إنشاء الطلب؟",
+    "confirmText": "هل أنت متأكد من إنشاء هذا الطلب؟",
     "cancel": "إلغاء",
     "confirm": "تأكيد",
     "success": "تم إنشاء الطلب بنجاح ✅"
   },
+
   "orders": {
     "title": "طلباتي",
     "empty": "لا توجد طلبات حتى الآن",
     "order": "طلب",
     "total": "الإجمالي"
   },
+
   "orderStatus": {
     "NEW": "جديد",
+    "PENDING": "قيد الانتظار",
+    "PROCESSING": "قيد المعالجة",
     "PAID": "مدفوع",
     "SHIPPED": "تم الشحن",
+    "DELIVERED": "تم التسليم",
     "COMPLETED": "مكتمل",
     "CANCELED": "ملغي"
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   "admin": {
     "dashboard": "لوحة تحكم الإدارة",
@@ -117,16 +109,54 @@
     },
     "revenueTitle": "الإيرادات",
     "revenueRangeHint": "آخر {{days}} يوم",
-    "topProducts": "أكثر المنتجات مبيعًا",
+    "topProducts": "أفضل المنتجات",
     "table": {
       "product": "المنتج",
       "qty": "الكمية",
       "amount": "المبلغ"
     },
-    "range": "الفترة: {{from}} ← {{to}}",
+    "range": "الفترة: {{from}} → {{to}}",
     "noRevenue": "لا توجد بيانات إيرادات في هذه الفترة",
-    "noTop": "لا توجد بيانات للمنتجات في هذه الفترة"
+    "noTop": "لا توجد منتجات مميزة في هذه الفترة"
+  },
+
+  "adminOrders": {
+    "loadFailed": "فشل في تحميل الطلبات",
+    "loadOrderDetailsFailed": "فشل في تحميل تفاصيل الطلب",
+    "statusUpdated": "تم تحديث الحالة بنجاح",
+    "statusUpdateFailed": "فشل في تحديث الحالة",
+    "title": "الإدارة — الطلبات",
+    "refresh": "تحديث",
+    "filters": {
+      "allStatus": "كل الحالات",
+      "usernamePlaceholder": "بحث باسم المستخدم",
+      "search": "بحث",
+      "reset": "إعادة تعيين"
+    },
+    "table": {
+      "id": "#",
+      "user": "المستخدم",
+      "created": "تاريخ الإنشاء",
+      "total": "الإجمالي",
+      "status": "الحالة",
+      "actions": "إجراءات",
+      "details": "تفاصيل",
+      "noOrders": "لا توجد طلبات",
+      "loading": "جاري التحميل..."
+    },
+    "pagination": {
+      "page": "صفحة {{page}} من {{totalPages}} — الإجمالي {{total}}",
+      "prev": "السابق",
+      "next": "التالي"
+    },
+    "details": {
+      "title": "تفاصيل الطلب",
+      "select": "اختر طلبًا",
+      "order": "الطلب",
+      "user": "المستخدم",
+      "status": "الحالة",
+      "total": "الإجمالي",
+      "items": "المنتجات"
+    }
   }
-
-
 }

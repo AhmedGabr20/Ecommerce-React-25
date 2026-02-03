@@ -63,8 +63,21 @@ export default function Navbar() {
                             <li className="nav-item"><span className="nav-link">{t("nav.hi")}, {user.username}</span></li>
 
                             {role === "ADMIN" && (
-                                <li className="nav-item"><Link className="nav-link" to="/admin/dashboard">{t("nav.admin")}</Link></li>
+                                <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/admin/dashboard">
+                                            {t("nav.admin")}
+                                        </Link>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/admin/orders">
+                                            {t("orders.title")}
+                                        </Link>
+                                    </li>
+                                </>
                             )}
+
                             <li className="nav-item">
                                 <button className="btn btn-sm btn-outline-danger" onClick={logout}>{t("nav.logout")}</button>
                             </li>
