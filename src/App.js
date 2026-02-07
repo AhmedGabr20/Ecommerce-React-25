@@ -14,6 +14,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminRoute from "./components/AdminRoute";
 import { useTranslation } from "react-i18next";
 import AdminOrdersPage from "./pages/Admin/AdminOrdersPage";
+import AdminProductsPage from "./pages/Admin/AdminProductsPage";
 
 function App() {
 
@@ -75,6 +76,11 @@ function App() {
                     <Route path="/admin/orders" element={
                         <AdminRoute>
                             <AdminOrdersPage />
+                        </AdminRoute>
+                    } />
+                    <Route path="/admin/products" element={
+                        <AdminRoute>
+                            <AdminProductsPage />
                         </AdminRoute>
                     } />
                 </Routes>
