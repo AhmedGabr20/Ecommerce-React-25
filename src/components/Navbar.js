@@ -75,6 +75,11 @@ export default function Navbar() {
                                             {t("orders.title")}
                                         </Link>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/admin/products">
+                                            Admin Products
+                                        </Link>
+                                    </li>
                                 </>
                             )}
 

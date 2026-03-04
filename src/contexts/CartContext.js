@@ -6,12 +6,13 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
     const [cart, setCart] = useState({items:[],totalPrice:0});
     const userId = localStorage.getItem("userId");
+    console.log(userId);
 
     const loadCart = async () => {
         if (!userId) { setCart(null); return; }
         try {
             const res = await cartService.getCart(userId);
-            // remember api interceptors unwrap response.data earlier; adjust if necessary
+            // remember api interceptors unwrap response.data earlier;
             const payload = res.data ?? res; // be safe
             setCart(payload);
         } catch (err) {
