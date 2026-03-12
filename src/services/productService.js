@@ -2,9 +2,11 @@ import api from "../api/axiosConfig";
 
 const PRODUCT_URL = "/products";
 
-const getAll = async (page = 0, size = 20, sortBy = "id") => {
+const getAll = async (categoryId = null, page = 0, size = 10, sortBy = "id") => {
     // backend returns ApiResponse with data = list
-    const res = await api.get(`${PRODUCT_URL}?page=${page}&size=${size}&sortBy=${sortBy}`);
+    let url = `${PRODUCT_URL}?page=${page}&size=${size}&sortBy=${sortBy}`;
+    if (categoryId) url += `&categoryId=${categoryId}`;
+    const res = await api.get(url);
     return res;
 };
 
