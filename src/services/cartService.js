@@ -2,25 +2,27 @@ import api from "../api/axiosConfig";
 
 const CART = "/cart";
 
-const addItem = (userId, productId, quantity = 1) => {
-    return api.post(`${CART}/${userId}/add/${productId}?quantity=${quantity}`);
+const getCart = () => api.get("/cart");
+
+const addItem = (productId, quantity = 1) => {
+    return api.post(
+        "/cart/items",
+        {
+            productId: productId,
+            quantity: quantity
+        }
+    );
 };
 
-const getCart = (userId) => {
-    return api.get(`${CART}/${userId}`);
-};
+const removeItem = (productId) =>
+    api.delete(`/cart/items/${productId}`);
 
-const clearCart = (userId) => {
-    return api.delete(`${CART}/${userId}/clear`);
-};
-
-const removeItem = (userId, itemId) => {
-    return api.delete(`${CART}/${userId}/remove/${itemId}`);
-};
+const clearCart = () =>
+    api.delete("/cart");
 
 export default {
-    addItem,
     getCart,
-    clearCart,
+    addItem,
     removeItem,
+    clearCart,
 };

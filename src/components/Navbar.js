@@ -35,14 +35,16 @@ export default function Navbar() {
                             {t("nav.products")}
                         </Link>
                     </li>
+                    {cartCount && (
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/cart">
+                                <FaShoppingCart /> {t("nav.cart")}
+                                {cartCount > 0 && <span className="badge bg-danger ms-2">{cartCount}</span>}
+                            </Link>
+                        </li>
+                    )}
                     {user && (
                         <>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/cart">
-                                    <FaShoppingCart /> {t("nav.cart")}
-                                    {cartCount > 0 && <span className="badge bg-danger ms-2">{cartCount}</span>}
-                                </Link>
-                            </li>
                             <li className="nav-item"><Link className="nav-link" to="/orders">{t("nav.myOrders")}</Link></li>
                         </>
                     )}
