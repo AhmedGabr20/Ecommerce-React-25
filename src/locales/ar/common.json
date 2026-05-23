@@ -35,13 +35,20 @@
 
   "products": {
     "title": "المنتجات",
-    "empty": "لا توجد منتجات متاحة"
+    "empty": "لا توجد منتجات متاحة",
+    "managements": "ادارة المنتجات"
   },
 
   "product": {
     "addToCart": "أضف إلى السلة",
     "adding": "جارٍ الإضافة...",
-    "price": "السعر"
+    "price": "السعر",
+    "name" : "المنتج",
+    "category" : "التصنيف",
+    "stock": "الكمية",
+    "add" : "+ اضافة منتج",
+    "createAt" : "تم الإنشاء في",
+    "updatedAt" : "تم التعديل في"
   },
 
   "cart": {
@@ -99,7 +106,7 @@
   },
 
   "admin": {
-    "dashboard": "لوحة تحكم الإدارة",
+    "dashboard": "لوحة التحكم",
     "loading": "جاري تحميل لوحة التحكم...",
     "kpi": {
       "totalRevenue": "إجمالي الإيرادات",
@@ -117,7 +124,9 @@
     },
     "range": "الفترة: {{from}} → {{to}}",
     "noRevenue": "لا توجد بيانات إيرادات في هذه الفترة",
-    "noTop": "لا توجد منتجات مميزة في هذه الفترة"
+    "noTop": "لا توجد منتجات مميزة في هذه الفترة",
+    "orders": "الطلبات",
+    "products" : "المنتجات"
   },
 
   "adminOrders": {
@@ -158,5 +167,42 @@
       "total": "الإجمالي",
       "items": "المنتجات"
     }
+  },
+  "productModal": {
+    "createTitle": "اضافة منتج",
+    "editTitle": "تعديل منتج",
+    "productNameEn": "اسم المنتج (English)",
+    "productNameAr": "اسم المنتج (عربي)",
+
+    "descriptionEn": "الوصف (English)",
+    "descriptionAr": "الوصف (عربي)",
+
+    "price": "السعر",
+    "stock": "المخزون",
+
+    "sku": "رمز المنتج",
+    "slug": "الرابط المختصر",
+    "brand": "العلامة التجارية",
+
+    "currency": "العملة",
+
+    "category": "التصنيف",
+    "selectCategory": "اختر التصنيف",
+
+    "active": "المنتج نشط",
+
+    "cancel": "الغاء",
+    "save": "حفظ",
+    "image": "صورة المنتج",
+    "upload": "تحميل",
+    "preview": "عرض",
+    "edit" : "تعديل",
+    "delete" : "حذف",
+    "view" : "عرض",
+    "basicInfo" : "البيانات الاساسية",
+    "pricingAndStock" : "التسعير & المخزون",
+    "identifiers" : "المعرفات",
+    "systemInfo" : "معلومات النظام",
+    "images" : "الصور"
   }
 }

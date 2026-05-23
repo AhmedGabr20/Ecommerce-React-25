@@ -35,13 +35,20 @@
 
   "products": {
     "title": "Products",
-    "empty": "No products available"
+    "empty": "No products available",
+    "managements": "Product Management"
   },
 
   "product": {
     "addToCart": "Add to Cart",
     "adding": "Adding...",
-    "price": "Price"
+    "price": "Price",
+    "name" : "Name",
+    "category" : "Category",
+    "stock": "Stock",
+    "add" : "+ New Product",
+    "createAt" : "Created At",
+    "updatedAt" : "Updated At"
   },
   "cart": {
     "loginFirst": "Please login first",
@@ -99,7 +106,7 @@
 
 
   "admin": {
-    "dashboard": "Admin Dashboard",
+    "dashboard": "Dashboard",
     "loading": "Loading dashboard...",
     "kpi": {
       "totalRevenue": "Total Revenue",
@@ -117,7 +124,9 @@
     },
     "range": "Range: {{from}} → {{to}}",
     "noRevenue": "No revenue data in this range",
-    "noTop": "No top products in this range"
+    "noTop": "No top products in this range",
+    "orders": "Orders",
+    "products" : "Products"
   },
   "adminOrders": {
     "loadFailed": "Failed to load orders",
@@ -157,5 +166,42 @@
       "total": "Total",
       "items": "Items"
     }
+  },
+  "productModal": {
+    "createTitle": "Create Product",
+    "editTitle": "Edit Product",
+    "productNameEn": "Product Name (English)",
+    "productNameAr": "Product Name (Arabic)",
+
+    "descriptionEn": "Description (English)",
+    "descriptionAr": "Description (Arabic)",
+
+    "price": "Price",
+    "stock": "Stock",
+
+    "sku": "SKU",
+    "slug": "Slug",
+    "brand": "Brand",
+
+    "currency": "Currency",
+
+    "category": "Category",
+    "selectCategory": "Select Category",
+
+    "active": "Product Active",
+
+    "cancel": "Cancel",
+    "save": "Save",
+    "image": "Product Image",
+    "upload": "Upload",
+    "preview": "Preview",
+    "edit" : "Edit",
+    "delete" : "Delete",
+    "view" : "View",
+    "basicInfo" : "Basic Info",
+    "pricingAndStock" : "Pricing & Stock",
+    "identifiers" : "Identifiers",
+    "systemInfo" : "System Info",
+    "images" : "Images"
   }
 }

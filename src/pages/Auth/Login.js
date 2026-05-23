@@ -14,9 +14,15 @@ const schema = yup.object().shape({
 });
 
 export default function Login() {
+
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting }
+    } = useForm({
         resolver: yupResolver(schema)
     });
 
@@ -24,23 +30,60 @@ export default function Login() {
         try {
             const res = await authService.login(data);
             login(res);
-            toast.success("Welcome!");
-            navigate("/products");
+         //   toast.success("Welcome Admin 🚀");
+            navigate("/dashboard");
         } catch (err) {
             toast.error(err.response?.data?.message || "Login failed");
         }
     };
 
     return (
-        <div className="container mt-5" style={{maxWidth:420}}>
-            <h3>Login</h3>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input className="form-control mb-2" placeholder="Email" {...register("username")} />
-                {errors.username && <div className="text-danger small">{errors.username.message}</div>}
-                <input className="form-control mb-2" placeholder="Password" type="password" {...register("password")} />
-                {errors.password && <div className="text-danger small">{errors.password.message}</div>}
-                <button className="btn btn-primary" disabled={isSubmitting}>{isSubmitting ? "Logging..." : "Login"}</button>
-            </form>
+        <div className="login-page">
+
+            <div className="login-card">
+
+                <h2 className="mb-1">Admin Panel</h2>
+                <p className="text-muted mb-4">Sign in to continue</p>
+
+                <form onSubmit={handleSubmit(onSubmit)}>
+
+                    <div className="mb-3">
+                        <input
+                            className="form-control form-control-lg"
+                            placeholder="Email"
+                            {...register("username")}
+                        />
+                        {errors.username && (
+                            <div className="text-danger small mt-1">
+                                {errors.username.message}
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="mb-3">
+                        <input
+                            className="form-control form-control-lg"
+                            type="password"
+                            placeholder="Password"
+                            {...register("password")}
+                        />
+                        {errors.password && (
+                            <div className="text-danger small mt-1">
+                                {errors.password.message}
+                            </div>
+                        )}
+                    </div>
+
+                    <button
+                        className="btn btn-primary w-100 btn-lg"
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? "Signing in..." : "Login"}
+                    </button>
+
+                </form>
+            </div>
+
         </div>
     );
 }

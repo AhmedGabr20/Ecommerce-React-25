@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 
-export default function Register() {
+export default function Register({onSuccess}) {
     const [form, setForm] = useState({ username: "", password: "" });
     const [err, setErr] = useState(null);
     const navigate = useNavigate();
@@ -12,7 +12,8 @@ export default function Register() {
         try {
             const res = await authService.register(form);
             if (res && res.status === "SUCCESS") {
-                navigate("/login");
+                //navigate("/auth");
+                onSuccess();
             } else {
                 setErr(res.message || "Registration failed");
             }

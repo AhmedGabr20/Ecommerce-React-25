@@ -5,15 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {AuthProvider} from "./contexts/AuthContext";
-import {CartProvider} from "./contexts/CartContext";
 import "./i18n";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <AuthProvider>
-        <CartProvider>
             <App />
-        </CartProvider>
     </AuthProvider>
 );
 reportWebVitals();

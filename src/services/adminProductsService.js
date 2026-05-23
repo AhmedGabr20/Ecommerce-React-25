@@ -16,6 +16,12 @@ const create = (body) => api.post("/admin/products", body);
 const update = (id, body) => api.put(`/admin/products/${id}`, body);
 const remove = (id) => api.delete(`/admin/products/${id}`);
 
+
+const getById = async (id) => {
+    const res = await api.get(`/products/${id}`);
+    return res;
+};
+
 const categories = () => api.get("/categories");
 
-export default { list, create, update, remove, categories };
+export default { list, create, update, remove, getById , categories };
