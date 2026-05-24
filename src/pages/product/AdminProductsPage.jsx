@@ -5,6 +5,7 @@ import adminProductsService from "../../services/adminProductsService";
 import { toast } from "react-toastify";
 import {useTranslation} from "react-i18next";
 import ProductViewDrawer from "../../components/products/ProductViewDrawer";
+import Swal from "sweetalert2";
 
 export default function AdminProductsPage() {
 
@@ -22,18 +23,51 @@ export default function AdminProductsPage() {
     const [viewOpen, setViewOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const loadProducts = async (p = page) => {
+    const [keyword, setKeyword] = useState("");
+    const [debouncedKeyword, setDebouncedKeyword] = useState("");
+
+    useEffect(() => {
+
+        const timer = setTimeout(() => {
+            setDebouncedKeyword(keyword);
+        }, 500);
+
+        return () => clearTimeout(timer);
+
+    }, [keyword]);
+
+    useEffect(() => {
+        loadProducts(0, debouncedKeyword);
+    }, [debouncedKeyword]);
+
+    const loadProducts = async (
+        p = page,
+        search = debouncedKeyword
+    ) => {
+
         try {
+
             setLoading(true);
+
             setPage(p);
-            const res = await adminProductsService.list({page:p , size:10});
-            const payload = res.data?.data ?? res.data;
+
+            const res = await adminProductsService.list({
+                page: p,
+                size: 10,
+                q: search
+            });
+
+            const payload =
+                res.data?.data ?? res.data;
 
             setProducts(payload);
 
         } catch {
+
             toast.error("Failed to load products");
+
         } finally {
+
             setLoading(false);
         }
     };
@@ -46,8 +80,6 @@ export default function AdminProductsPage() {
     };
 
     useEffect(() => {
-        loadProducts();
-
         loadCategories();
 
     }, []);
@@ -118,23 +150,50 @@ export default function AdminProductsPage() {
 
     const handleDelete = async (id) => {
 
-        const ok = window.confirm(
-            "Delete this product?"
-        );
+        const result = await Swal.fire({
 
-        if (!ok) return;
+            title: t("product.deleteConfirmTitle") || "Delete Product?",
+
+            text:
+                t("product.deleteConfirmText") ||
+                "You won't be able to restore this product!",
+
+            icon: "warning",
+
+            showCancelButton: true,
+
+            confirmButtonColor: "#d33",
+
+            cancelButtonColor: "#6c757d",
+
+            confirmButtonText:
+                t("product.delete") || "Delete",
+
+            cancelButtonText:
+                t("common.cancel") || "Cancel"
+        });
+
+        if (!result.isConfirmed) {
+            return;
+        }
 
         try {
 
             await adminProductsService.remove(id);
 
-            toast.success("Product deleted");
+            toast.success(
+                t("product.deleted") ||
+                "Product deleted"
+            );
 
             loadProducts();
 
         } catch {
 
-            toast.error("Delete failed");
+            toast.error(
+                t("product.deleteFailed") ||
+                "Delete failed"
+            );
         }
     };
 
@@ -170,6 +229,24 @@ export default function AdminProductsPage() {
                 >
                     {t("product.add")}
                 </button>
+            </div>
+            <div className="row mb-3">
+
+                <div className="col-md-6">
+
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder={
+                            t("product.search") ||
+                            "Search by name, description, sku..."
+                        }
+                        value={keyword}
+                        onChange={(e) => setKeyword(e.target.value)}
+                    />
+
+                </div>
+
             </div>
 
             <div className="card shadow-sm p-3">

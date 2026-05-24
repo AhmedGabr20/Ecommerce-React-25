@@ -48,7 +48,12 @@
     "stock": "Stock",
     "add" : "+ New Product",
     "createAt" : "Created At",
-    "updatedAt" : "Updated At"
+    "updatedAt" : "Updated At",
+    "search" : "Search by name, description, sku...",
+    "image" : "Image",
+    "delete": "Delete Product",
+    "deleteConfirmTitle": "Delete Confirmation",
+    "deleteConfirmText": "Are you sure you want to delete this product?"
   },
   "cart": {
     "loginFirst": "Please login first",
@@ -203,5 +208,9 @@
     "identifiers" : "Identifiers",
     "systemInfo" : "System Info",
     "images" : "Images"
+  },
+  "common" : {
+    "cancel" : "Cancel"
+
   }
 }

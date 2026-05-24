@@ -21,7 +21,7 @@ export default function ProductTable({
 
                 <thead className="table-light">
                 <tr>
-                    <th>#</th>
+                    <th>{t("product.image")}</th>
                     <th>{t("product.name")}</th>
                     <th>{t("product.category")}</th>
                     <th>{t("product.price")}</th>
@@ -33,7 +33,36 @@ export default function ProductTable({
                 <tbody>
                 {items.map((p) => (
                     <tr key={p.id}>
-                        <td>{p.id}</td>
+                        <td>
+
+                            {p.imageUrl ? (
+
+                                <img
+                                    src={p.imageUrl}
+                                    alt={p.nameEn}
+                                    width="55"
+                                    height="55"
+                                    className="rounded border"
+                                    style={{
+                                        objectFit: "cover"
+                                    }}
+                                />
+
+                            ) : (
+
+                                <div
+                                    className="bg-light border rounded d-flex align-items-center justify-content-center"
+                                    style={{
+                                        width: 55,
+                                        height: 55,
+                                        fontSize: 12
+                                    }}
+                                >
+                                    No Image
+                                </div>
+                            )}
+
+                        </td>
 
                         <td>
                             <div className="fw-bold">
@@ -86,7 +115,7 @@ export default function ProductTable({
                 {items.length === 0 && (
                     <tr>
                         <td
-                            colSpan="6"
+                            colSpan="7"
                             className="text-center text-muted"
                         >
                             No Products Found

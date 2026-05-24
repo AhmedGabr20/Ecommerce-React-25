@@ -48,7 +48,12 @@
     "stock": "الكمية",
     "add" : "+ اضافة منتج",
     "createAt" : "تم الإنشاء في",
-    "updatedAt" : "تم التعديل في"
+    "updatedAt" : "تم التعديل في",
+    "search" : "بحث بالاسم او الوصف او الكود ...",
+    "image" : "الصوره",
+    "delete": "حذف المنتج",
+    "deleteConfirmTitle": "تأكيد الحذف",
+    "deleteConfirmText":  "هل أنت متأكد أنك تريد حذف هذا المنتج؟"
   },
 
   "cart": {
@@ -204,5 +209,9 @@
     "identifiers" : "المعرفات",
     "systemInfo" : "معلومات النظام",
     "images" : "الصور"
+  },
+  "common" : {
+    "cancel" : "الغاء"
+
   }
 }
