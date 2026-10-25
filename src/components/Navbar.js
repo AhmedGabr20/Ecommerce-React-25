@@ -30,7 +30,7 @@ export default function Navbar() {
                 {t("nav.brand")}
             </Link>
 
-            <div className="collapse navbar-collapse">
+            <div className="navbar-collapse">
 
                 <ul className="navbar-nav me-auto">
 

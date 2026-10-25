@@ -3,7 +3,7 @@ import authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
-    const [form, setForm] = useState({ username: "", password: "" });
+    const [form, setForm] = useState({ email: "", password: "" });
     const [err, setErr] = useState(null);
     const navigate = useNavigate();
 
@@ -26,8 +26,8 @@ export default function Register() {
             <h3>Register</h3>
             {err && <div className="alert alert-danger">{err}</div>}
             <form onSubmit={submit}>
-                <input className="form-control mb-2" placeholder="Username" value={form.username}
-                       onChange={(e)=>setForm({...form, username: e.target.value})} />
+                <input className="form-control mb-2" placeholder="email" value={form.email}
+                       onChange={(e)=>setForm({...form, email: e.target.value})} />
                 <input className="form-control mb-2" placeholder="Password" type="password" value={form.password}
                        onChange={(e)=>setForm({...form, password: e.target.value})} />
                 <button className="btn btn-success">Register</button>

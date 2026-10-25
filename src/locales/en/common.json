@@ -35,19 +35,31 @@
 
   "products": {
     "title": "Products",
-    "empty": "No products available"
+    "empty": "No products available",
+    "loadMore": "Load More",
+    "loading": "Loading..."
   },
 
   "product": {
     "addToCart": "Add to Cart",
     "adding": "Adding...",
-    "price": "Price"
+    "price": "Price",
+    "brand": "Brand",
+    "description": "Description",
+    "stock": "Stock",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "relatedProducts": "Related Products"
   },
   "cart": {
     "loginFirst": "Please login first",
     "added": "{{name}} added to cart",
     "addFailed": "Failed to add to cart"
   },
+
+  "categories": "Categories",
+  "AlCategories": "All Categories",
+
   "cartPage": {
     "empty": "Your cart is empty",
     "title": "Your Cart",

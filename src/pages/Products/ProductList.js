@@ -4,6 +4,7 @@ import categoryService from "../../services/categoryService";
 import ProductCard from "../../components/ProductCard";
 import Spinner from "../../components/Spinner";
 import { useTranslation } from "react-i18next";
+import CategorySidebar from "../../components/CategorySidebar";
 
 export default function ProductList() {
     const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ export default function ProductList() {
 
     // Load categories once
     useEffect(() => {
-        categoryService.getAll()
+        categoryService.getTree()
             .then(res => setCategories(res.data ?? []))
             .catch(err => console.error(err));
     }, []);
@@ -61,30 +62,13 @@ export default function ProductList() {
             <div className="row">
                 {/* SIDEBAR */}
                 <div className="col-lg-2 col-md-3 mb-3">
-                    <div className="card p-3">
-                        <h6>{t("categories")}</h6>
-                        <ul className="list-group list-group-flush">
-                            <li
-                                className={`list-group-item ${selectedCategory === null ? "active" : ""}`}
-                                onClick={() => setSelectedCategory(null)}
-                                style={{ cursor: "pointer" }}
-                            >
-                                All
-                            </li>
-                            {categories.map(c => (
-                                <li
-                                    key={c.id}
-                                    className={`list-group-item ${selectedCategory === c.id ? "active" : ""}`}
-                                    onClick={() => setSelectedCategory(c.id)}
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    {i18n.language?.startsWith("ar")
-                                    ? (c.nameAr || c.nameEn)
-                                    : (c.nameEn || c.nameAr)}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+
+                    <CategorySidebar
+                        categories={categories}
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                    />
+
                 </div>
 
                 {/* PRODUCTS */}
@@ -108,7 +92,7 @@ export default function ProductList() {
                                         onClick={loadMore}
                                         disabled={loadingMore}
                                     >
-                                        {loadingMore ? t("loading") : t("load_more")}
+                                        {loadingMore ? t("products.loading") : t("products.loadMore")}
                                     </button>
                                 </div>
                             )}

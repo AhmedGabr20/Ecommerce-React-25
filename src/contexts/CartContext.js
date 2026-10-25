@@ -20,7 +20,7 @@ export function CartProvider({ children }) {
 
             setCart(cart);
             // حفظ uuid لو لسه متخزنش
-            if (!cartUuid && cart.cartUuid) {
+            if (cart?.cartUuid && cart.cartUuid !== cartUuid) {
                 localStorage.setItem("cartUuid", cart.cartUuid);
                 setCartUuid(cart.cartUuid);
             }

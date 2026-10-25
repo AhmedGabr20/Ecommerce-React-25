@@ -35,13 +35,21 @@
 
   "products": {
     "title": "المنتجات",
-    "empty": "لا توجد منتجات متاحة"
+    "empty": "لا توجد منتجات متاحة",
+    "loadMore": "عرض المزيد",
+    "loading": "جاري التحميل..."
   },
 
   "product": {
     "addToCart": "أضف إلى السلة",
     "adding": "جارٍ الإضافة...",
-    "price": "السعر"
+    "price": "السعر",
+    "brand": "العلامة التجارية",
+    "description": "الوصف",
+    "stock": "المخزون",
+    "inStock": "متوفر",
+    "outOfStock": "غير متوفر",
+    "relatedProducts": "منتجات مشابهة"
   },
 
   "cart": {
@@ -49,6 +57,8 @@
     "added": "تمت إضافة {{name}} إلى السلة",
     "addFailed": "فشل في إضافة المنتج إلى السلة"
   },
+  "categories": "التصنيفات",
+  "AllCategories": "كل التصنيفات",
 
   "cartPage": {
     "empty": "سلة المشتريات فارغة",

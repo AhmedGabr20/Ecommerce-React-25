@@ -15,6 +15,7 @@ import AdminRoute from "./components/AdminRoute";
 import { useTranslation } from "react-i18next";
 import AdminOrdersPage from "./pages/Admin/AdminOrdersPage";
 import AdminProductsPage from "./pages/Admin/AdminProductsPage";
+import ProductDetails from "./pages/Products/ProductDetails";
 
 function App() {
 
@@ -47,10 +48,9 @@ function App() {
                     {/*    </ProtectedRoute>*/}
                     {/*} />*/}
                     <Route path="/cart" element={
-
                             <CartPage />
-
                     }/>
+                    <Route path="/products/:id" element={<ProductDetails />} />
                     <Route path="/checkout" element={
                         <ProtectedRoute>
                             <CheckoutPage />

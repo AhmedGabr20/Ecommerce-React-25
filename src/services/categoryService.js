@@ -8,6 +8,11 @@ const getAll = async (page = 0, size = 20, sortBy = "id") => {
     return res;
 };
 
+const getTree = async () => {
+    const res = await api.get(`${CATEGORY_URL}/tree`);
+    return res;
+};
+
 const create = async (productPayload) => {
     return await api.post(`${CATEGORY_URL}`, productPayload);
 };
@@ -15,4 +20,5 @@ const create = async (productPayload) => {
 export default {
     getAll,
     create,
+    getTree
 };

@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {AuthProvider} from "./contexts/AuthContext";
 import {CartProvider} from "./contexts/CartContext";
 import "./i18n";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

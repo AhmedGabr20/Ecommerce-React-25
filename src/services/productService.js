@@ -14,7 +14,13 @@ const create = async (productPayload) => {
     return await api.post(`${PRODUCT_URL}`, productPayload);
 };
 
+const getById = async (id) => {
+    const res = await api.get(`/products/${id}`);
+    return res;
+};
+
 export default {
     getAll,
     create,
+    getById,
 };
